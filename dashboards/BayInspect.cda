@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="Top10Ejecuciones" type="kettle.TransFromFile">
+         <KtrFile>../endpoints/kettle/trans_filtrada_user.ktr</KtrFile>
+         <variables datarow-name="usuario"/>
+      </Connection>
+      <Connection id="Top10MayorTiempo" type="kettle.TransFromFile">
+         <KtrFile>../endpoints/kettle/trans_filtrada_user.ktr</KtrFile>
+         <variables datarow-name="usuario"/>
+      </Connection>
+      <Connection id="EvolucionHoras" type="kettle.TransFromFile">
+         <KtrFile>../endpoints/kettle/trans_filtrada_user.ktr</KtrFile>
+         <variables datarow-name="usuario"/>
+      </Connection>
+      <Connection id="tabla" type="kettle.TransFromFile">
+         <KtrFile>../endpoints/kettle/trans_tabla.ktr</KtrFile>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" connection="Top10Ejecuciones" id="Top10Ejecuciones"
+               type="kettle">
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="" name="usuario" type="String"/>
+      </Parameters>
+      <Query><![CDATA[Top10Ejecuciones]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="Top10MayorTiempo" id="Top10MayorTiempo"
+               type="kettle">
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="" name="usuario" type="String"/>
+      </Parameters>
+      <Query><![CDATA[Top10MayorTiempo]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="EvolucionHoras" id="EvolucionHoras" type="kettle">
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="" name="usuario" type="String"/>
+      </Parameters>
+      <Query><![CDATA[Final Evolucion por horas]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="tabla" id="tabla" type="kettle">
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[Final Tabla Users]]></Query>
+   </DataAccess>
+</CDADescriptor>
